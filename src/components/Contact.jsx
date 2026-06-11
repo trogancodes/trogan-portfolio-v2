@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 
 const LINKS = [
-  { label: 'Email', value: 'eddiepascal@gmail.com', href: 'mailto:eddiepascal04@gmail.com' },
+  { label: 'Email', value: 'eddiepascal04@gmail.com', href: 'mailto:eddiepascal04@gmail.com' },
   {
     label: 'LinkedIn',
     value: '/in/chiedozie-pascal',

@@ -101,7 +101,15 @@ export default function Nav() {
         </button>
       </nav>
 
-      {/* Mobile overlay menu */}
+{/* Backdrop — dims page behind mobile menu */}
+<div
+  className={`fixed inset-0 z-30 bg-black/60 backdrop-blur-sm transition-opacity duration-500 md:hidden ${
+    open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
+  }`}
+  onClick={() => setOpen(false)}
+/>
+
+{/* Mobile overlay menu */}
       <div
         className={`fixed inset-0 z-40 origin-top bg-bg transition-all duration-500 ease-editorial md:hidden ${
           open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
