@@ -1,7 +1,6 @@
-[build]
-  command = "npx vite build"
+  [build]
+  command = "npm install && node ./node_modules/vite/bin/vite.js build"
   publish = "dist"
 
 [build.environment]
   NODE_VERSION = "18"
-  NPM_FLAGS = "--include=dev"
