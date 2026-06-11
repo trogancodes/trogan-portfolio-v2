@@ -28,33 +28,50 @@ export default function Hero() {
   return (
     <section
       id="top"
-     className="relative flex min-h-svh flex-col justify-center overflow-hidden pt-20 pb-10"
+      className="relative flex min-h-svh flex-col overflow-hidden md:flex-row-reverse"
     >
 
-      {/* ── Portrait image right panel ── */}
-      <div className="pointer-events-none relative md:absolute md:right-0 md:top-0 md:h-full w-full md:w-[45%] h-64 mt-8 md:mt-0">
+      {/* IMAGE — top on mobile, RIGHT on desktop */}
+      <div className="relative h-[45vh] shrink-0 md:h-auto md:w-[45%]">
         <motion.img
           src={portrait}
           alt="Trogan — UX/Product Designer and Developer"
-         className="h-full w-full object-cover object-top md:object-top object-center"
+          className="h-full w-full object-cover object-top"
           initial={{ opacity: 0, scale: reduce ? 1 : 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
         />
-        {/* left edge fade — blends into dark bg */}
-        <div className="absolute inset-y-0 left-0 z-10 w-56 bg-gradient-to-r from-[#0D121C] via-[#0D121C]/60 to-transparent" />
-        {/* bottom edge fade */}
-        <div className="absolute inset-x-0 bottom-0 z-10 h-52 bg-gradient-to-t from-[#0D121C] to-transparent" />
-        {/* top edge fade */}
-        <div className="absolute inset-x-0 top-0 z-10 h-32 bg-gradient-to-b from-[#0D121C] to-transparent" />
-        {/* overall dark tint so photo doesn't compete with text */}
-        <div className="absolute inset-0 bg-[#0D121C]/25" />
+        {/* bottom fade */}
+        <div className="absolute inset-x-0 bottom-0 z-10 h-32 bg-gradient-to-t from-black to-transparent" />
+        {/* top fade */}
+        <div className="absolute inset-x-0 top-0 z-10 h-20 bg-gradient-to-b from-black to-transparent" />
+        {/* left fade — desktop only */}
+        <div className="absolute inset-y-0 left-0 z-10 hidden w-40 bg-gradient-to-r from-black to-transparent md:block" />
+        {/* dark tint */}
+        <div className="absolute inset-0 bg-black/20" />
       </div>
 
-      {/* ── Decorative line — sits above portrait ── */}
-   
-      {/* ── Text content — sits above everything ── */}
-     <div className="rail relative z-30 md:max-w-2xl">
+      {/* TEXT — bottom on mobile, LEFT on desktop */}
+      <div className="rail relative z-30 flex flex-1 flex-col justify-center py-12 md:py-28">
+
+        {/* SVG divider — desktop only */}
+        <svg
+          aria-hidden="true"
+          className="pointer-events-none absolute right-0 top-0 z-20 hidden h-full w-20 opacity-70 md:block"
+          viewBox="0 0 80 800"
+          fill="none"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <motion.path
+            d="M40 0 C 20 120, 60 220, 40 400 C 20 580, 60 680, 40 800"
+            stroke="#C8F542"
+            strokeWidth="1.5"
+            initial={{ pathLength: reduce ? 1 : 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: reduce ? 0 : 2.4, ease: 'easeInOut', delay: 0.3 }}
+          />
+        </svg>
+
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -115,8 +132,8 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* ── Bottom meta rail ── */}
-      <div className="rail relative z-30 mt-20 hidden items-center justify-between border-t border-white/10 pt-5 md:flex">
+      {/* BOTTOM META RAIL */}
+      <div className="rail absolute bottom-0 left-0 right-0 z-30 hidden items-center justify-between border-t border-white/10 pb-5 pt-5 md:flex">
         {['Product Strategy', 'Design Systems', 'Frontend Engineering'].map((t) => (
           <span key={t} className="font-mono text-xs uppercase tracking-[0.2em] text-text-muted">
             {t}
