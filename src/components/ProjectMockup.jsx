@@ -1,6 +1,8 @@
 // Hand-built abstract mockups per project — no stock imagery, no placeholders.
 // Each is a tiny stylised interface keyed to what the product actually does.
-
+import cycleImg from '../assests/cycle.png'
+import dashboardImg from '../assests/Dashboard.png'
+import swiftImg from '../assests/swift.png'
 function Frame({ children, accent }) {
   return (
     <div className="relative h-full w-full overflow-hidden bg-[#0c0c0c]">
@@ -22,112 +24,43 @@ function Frame({ children, accent }) {
   )
 }
 
-function CyclePay({ accent }) {
+function CyclePay() {
   return (
-    <Frame accent={accent}>
-      <div className="flex h-full flex-col justify-between">
-        <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-white/50">
-          <span>Wallet</span>
-          <span style={{ color: accent }}>● settled</span>
-        </div>
-        <div>
-          <p className="font-mono text-[10px] uppercase tracking-widest text-white/40">
-            Weight captured
-          </p>
-          <p className="font-display text-4xl font-extrabold text-white">
-            12.4<span className="text-base text-white/50"> kg</span>
-          </p>
-          <div className="mt-3 flex items-end gap-1.5">
-            {[40, 65, 30, 80, 55, 95, 70, 45].map((h, i) => (
-              <span
-                key={i}
-                className="w-3 rounded-sm"
-                style={{ height: `${h}%`, background: accent, opacity: 0.35 + i * 0.07 }}
-              />
-            ))}
-          </div>
-        </div>
-        <div
-          className="flex items-center justify-between rounded-lg px-3 py-2.5"
-          style={{ background: accent }}
-        >
-          <span className="font-mono text-[11px] font-medium text-black">Credited</span>
-          <span className="font-display text-sm font-bold text-black">₦ 4,960</span>
-        </div>
-      </div>
-    </Frame>
+    <div className="relative h-full w-full overflow-hidden bg-[#0c0c0c]">
+      <img
+        src={cycleImg}
+        alt="CyclePay app screenshot"
+        className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+    </div>
   )
 }
 
 
-
-function Swift({ accent }) {
+function Swift() {
   return (
-    <Frame accent={accent}>
-      <div className="flex h-full flex-col items-center justify-center gap-4">
-        <div className="rounded-2xl bg-white p-3">
-          {/* faux QR */}
-          <div
-            className="grid h-24 w-24 gap-0.5"
-            style={{ gridTemplateColumns: 'repeat(7, 1fr)' }}
-          >
-            {Array.from({ length: 49 }).map((_, i) => (
-              <span
-                key={i}
-                style={{ background: (i * 7 + i * i) % 3 === 0 ? '#000' : 'transparent' }}
-              />
-            ))}
-          </div>
-        </div>
-        <div className="text-center">
-          <p className="font-mono text-[10px] uppercase tracking-widest" style={{ color: accent }}>
-            Event Pass · Valid
-          </p>
-          <p className="font-display text-sm font-bold text-white">Lagos Founders Mixer</p>
-        </div>
-      </div>
-    </Frame>
+    <div className="relative h-full w-full overflow-hidden bg-[#0c0c0c]">
+      <img
+        src={swiftImg}
+        alt="Swift PassKit screenshot"
+        className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+    </div>
   )
 }
 
-function EnergyIQ({ accent }) {
+function EnergyIQ() {
   return (
-    <Frame accent={accent}>
-      <div className="flex h-full flex-col justify-between">
-        <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-white/50">
-          <span>Cost / kWh</span>
-          <span style={{ color: accent }}>↓ switch to grid</span>
-        </div>
-        <svg viewBox="0 0 200 80" className="w-full" fill="none" preserveAspectRatio="none">
-          <polyline
-            points="0,60 25,55 50,40 75,48 100,30 125,38 150,18 175,26 200,12"
-            stroke={accent}
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <polyline
-            points="0,70 25,66 50,68 75,60 100,62 125,55 150,58 175,50 200,52"
-            stroke="#fff"
-            strokeOpacity="0.25"
-            strokeWidth="1.5"
-            strokeDasharray="3 3"
-          />
-        </svg>
-        <div className="grid grid-cols-3 gap-2">
-          {[
-            ['Grid', '₦68'],
-            ['Gen', '₦240'],
-            ['Inv', '₦0'],
-          ].map(([k, v]) => (
-            <div key={k} className="rounded-lg border border-white/10 px-2 py-2">
-              <p className="font-mono text-[9px] uppercase tracking-widest text-white/40">{k}</p>
-              <p className="text-xs font-bold text-white">{v}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </Frame>
+    <div className="relative h-full w-full overflow-hidden bg-[#0c0c0c]">
+      <img
+        src={dashboardImg}
+        alt="EnergyIQ dashboard screenshot"
+        className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+    </div>
   )
 }
 
