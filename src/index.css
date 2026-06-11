@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes scroll-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-bg text-text-primary font-body antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Display headings use Cabinet Grotesk with tight tracking */
+  h1,
+  h2,
+  h3 {
+    @apply font-display tracking-tightest;
+  }
+
+  ::selection {
+    background-color: #c8f542;
+    color: #0a0a0a;
+  }
+
+  /* Visible, intentional focus states for keyboard users */
+  :focus-visible {
+    outline: 2px solid #c8f542;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Thin editorial scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0a0a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e1e1e;
+    border-radius: 0;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2a2a2a;
+  }
+}
+
+@layer components {
+  /* Outer page rail — keeps the asymmetric grid anchored */
+  .rail {
+    @apply mx-auto w-full max-w-container px-6 sm:px-8 lg:px-12;
+  }
+
+  /* Monospace eyebrow label used across sections */
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.25em] text-text-muted;
+  }
+
+  /* Thin hairline divider */
+  .hairline {
+    @apply h-px w-full bg-white/10;
+  }
+}
+
+/* Hide the native cursor only when the custom trail cursor is active
+   (pointer-fine devices, motion allowed). Touch devices keep native. */
+@media (hover: hover) and (pointer: fine) {
+  body.custom-cursor-active,
+  body.custom-cursor-active a,
+  body.custom-cursor-active button {
+    cursor: none;
+  }
+}
+
+/* Honor reduced-motion globally: kill non-essential animation. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
