@@ -119,12 +119,21 @@ export default function Nav() {
           open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
         }`}
       >
-        <ul className="rail flex h-full flex-col justify-center gap-2">
+        {/* Logo */}
+        <Link
+          to="/"
+          onClick={() => setOpen(false)}
+          className="rail absolute inset-x-0 top-0 flex items-center py-5 font-display text-lg font-extrabold tracking-tightest text-text-primary"
+        >
+          Trogan<span className="text-accent">.</span>
+        </Link>
+
+        <ul className="rail flex h-full flex-col justify-start gap-3 pt-24">
           {LINKS.map((l, i) => (
             <li key={l.id}>
               <button
                 onClick={() => goToSection(l.id)}
-                className="font-display text-5xl font-bold tracking-tightest text-text-primary"
+                className="font-display text-2xl font-bold tracking-tightest text-text-primary"
               >
                 <span className="mr-4 font-mono text-sm text-text-muted">
                   0{i + 1}
