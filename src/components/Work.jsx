@@ -50,10 +50,7 @@ function Tile({ project, index }) {
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-text-muted">
               {project.descriptor}
             </p>
-            <span
-              className="mt-5 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em]"
-              style={{ color: project.accent }}
-            >
+            <span className="mt-5 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-accent">
               View case study →
             </span>
           </div>

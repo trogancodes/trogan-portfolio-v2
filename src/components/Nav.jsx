@@ -103,7 +103,7 @@ export default function Nav() {
 
 {/* Backdrop — dims page behind mobile menu */}
 <div
-  className={`fixed inset-0 z-30 bg-black/60 backdrop-blur-sm transition-opacity duration-500 md:hidden ${
+  className={`fixed inset-0 z-30 bg-black/80 backdrop-blur-sm transition-opacity duration-500 md:hidden ${
     open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
   }`}
   onClick={() => setOpen(false)}
@@ -111,7 +111,7 @@ export default function Nav() {
 
 {/* Mobile overlay menu */}
       <div
-        className={`fixed inset-0 z-40 origin-top bg-bg transition-all duration-500 ease-editorial md:hidden ${
+        className={`fixed inset-0 z-40 origin-top bg-[#0A0A0A] transition-all duration-500 ease-editorial md:hidden ${
           open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
         }`}
       >
@@ -131,10 +131,10 @@ export default function Nav() {
           ))}
           <li className="mt-8">
             <a
-              href="mailto:eddiepascal@gmail.com"
+              href="mailto:eddiepascal04@gmail.com"
               className="font-mono text-sm uppercase tracking-[0.2em] text-accent"
             >
-              eddiepascal@gmail.com →
+              eddiepascal04@gmail.com →
             </a>
           </li>
         </ul>
