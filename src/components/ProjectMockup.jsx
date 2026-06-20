@@ -30,7 +30,7 @@ function CyclePay() {
       <img
         src={cycleImg}
         alt="CyclePay app screenshot"
-        className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+        className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
     </div>
@@ -44,7 +44,7 @@ function Swift() {
       <img
         src={swiftImg}
         alt="Swift PassKit screenshot"
-        className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+        className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
     </div>
@@ -57,7 +57,7 @@ function EnergyIQ() {
       <img
         src={dashboardImg}
         alt="EnergyIQ dashboard screenshot"
-        className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+        className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
     </div>

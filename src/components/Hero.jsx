@@ -54,24 +54,6 @@ export default function Hero() {
       {/* TEXT — bottom on mobile, LEFT on desktop */}
       <div className="rail relative z-30 flex flex-1 flex-col justify-center py-12 md:py-28">
 
-        {/* SVG divider — desktop only */}
-        <svg
-          aria-hidden="true"
-          className="pointer-events-none absolute right-0 top-0 z-20 hidden h-full w-20 opacity-70 md:block"
-          viewBox="0 0 80 800"
-          fill="none"
-          preserveAspectRatio="xMidYMid meet"
-        >
-          <motion.path
-            d="M40 0 C 20 120, 60 220, 40 400 C 20 580, 60 680, 40 800"
-            stroke="#C8F542"
-            strokeWidth="1.5"
-            initial={{ pathLength: reduce ? 1 : 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: reduce ? 0 : 2.4, ease: 'easeInOut', delay: 0.3 }}
-          />
-        </svg>
-
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

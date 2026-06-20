@@ -22,39 +22,40 @@ function Tile({ project, index }) {
     >
       <Link
         to={`/project/${project.slug}`}
-        className="relative flex h-full w-full flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-surface p-6 transition-colors duration-500 hover:border-white/25 sm:p-8"
+        className="relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-surface transition-colors duration-500 hover:border-white/25"
       >
-        {/* Top meta */}
-        <div className="relative z-20 flex items-start justify-between">
-          <span className="font-mono text-xs uppercase tracking-[0.2em] text-text-muted">
-            {String(index + 1).padStart(2, '0')} / {project.tags.join(' · ')}
-          </span>
-          <span className="font-mono text-xs text-text-muted">{project.year}</span>
-        </div>
-
-        {/* Title + descriptor */}
-        <div className="relative z-20 mt-auto">
-          <h3 className="font-display text-4xl font-bold leading-none tracking-tightest text-text-primary transition-transform duration-500 ease-editorial group-hover:-translate-y-1 sm:text-5xl">
-            {project.name}
-          </h3>
-          <p className="mt-3 max-w-sm text-sm leading-relaxed text-text-muted">
-            {project.descriptor}
-          </p>
-          <span
-            className="mt-5 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em]"
-            style={{ color: project.accent }}
-          >
-            View case study →
-          </span>
-        </div>
-
-        {/* Preview slides up from the bottom on hover (pure CSS transform) */}
+        {/* Image — always visible on mobile/tablet, reveals on hover at lg+ */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[62%] translate-y-full transition-transform duration-700 ease-editorial group-hover:translate-y-0"
+          className="w-full shrink-0 overflow-hidden border-b border-white/10 transition-[height] duration-700 ease-editorial h-[260px] sm:h-[320px] lg:h-0 lg:border-b-0 lg:group-hover:h-[320px] lg:group-hover:border-b"
         >
-          <div className="h-full w-full overflow-hidden rounded-t-2xl border-t border-white/10 shadow-2xl">
-            <ProjectMockup slug={project.slug} accent={project.accent} />
+          <ProjectMockup slug={project.slug} accent={project.accent} />
+        </div>
+
+        {/* Text — always at the bottom */}
+        <div className="relative z-20 flex flex-1 flex-col p-6 sm:p-8">
+          {/* Top meta */}
+          <div className="flex items-start justify-between">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-text-muted">
+              {String(index + 1).padStart(2, '0')} / {project.tags.join(' · ')}
+            </span>
+            <span className="font-mono text-xs text-text-muted">{project.year}</span>
+          </div>
+
+          {/* Title + descriptor */}
+          <div className="mt-auto pt-6">
+            <h3 className="font-display text-4xl font-bold leading-none tracking-tightest text-text-primary transition-transform duration-500 ease-editorial group-hover:-translate-y-1 sm:text-5xl">
+              {project.name}
+            </h3>
+            <p className="mt-3 max-w-sm text-sm leading-relaxed text-text-muted">
+              {project.descriptor}
+            </p>
+            <span
+              className="mt-5 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em]"
+              style={{ color: project.accent }}
+            >
+              View case study →
+            </span>
           </div>
         </div>
       </Link>
