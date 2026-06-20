@@ -43,7 +43,11 @@ export default function Nav() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
-        scrolled || open ? 'bg-bg/80 backdrop-blur-md' : 'bg-transparent'
+        open
+          ? 'bg-[#0A0A0A]'
+          : scrolled
+            ? 'bg-bg/80 backdrop-blur-md'
+            : 'bg-transparent'
       }`}
     >
       <nav
